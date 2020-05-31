@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,10 +21,7 @@ public class CustomUserDetailService implements UserDetailsService {
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found");
 		}
-		return org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder()
-				.username(user.getUsername())
-				.password(user.getPassword()).roles(user.getRole().toString())
-				.build();
+		return new CustomerUser(user);
 	}
 
 }

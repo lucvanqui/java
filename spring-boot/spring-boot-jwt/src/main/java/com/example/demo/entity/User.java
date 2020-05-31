@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.example.demo.model.UserModel;
+
 @Entity
 @Table(name = "user")
 public class User extends Audit{
@@ -30,9 +32,8 @@ public class User extends Audit{
 	@Column(name="role")
 	private String role;
 	
-	@NotBlank
 	@Column(name="is_active")
-	private boolean isActive;
+	private Boolean isActive;
 	
 	
 	public String getUsername() {
@@ -47,13 +48,13 @@ public class User extends Audit{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isActive() {
+	public Boolean isActive() {
 		return isActive;
 	}
-	public void setActive(boolean isActive) {
+	public void setActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
-	public User(long id, String username, String password, boolean isActive) {
+	public User(long id, String username, String password, Boolean isActive) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -70,6 +71,13 @@ public class User extends Audit{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+	public UserModel convertToModel() {
+		UserModel model = new UserModel();
+		model.setUserName(this.getUsername());
+		model.setPassword("********");
+		model.setRole(this.role);
+		model.setActive(isActive());
+		return model;
+	}
 
 }
