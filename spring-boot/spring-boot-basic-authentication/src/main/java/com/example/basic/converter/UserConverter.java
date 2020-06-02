@@ -1,8 +1,5 @@
 package com.example.basic.converter;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
 import com.example.basic.entity.UserEntity;
 import com.example.basic.model.UserModel;
 
