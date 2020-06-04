@@ -1,0 +1,20 @@
+databaseChangeLog:
+- changeSet:
+   author: "qui"
+   id: "add_more_column_on_company_tables"
+   changes:
+      - addColumn:
+         tableName: "company"
+         columns:
+            - column:
+               name: "address"
+               type: "VARCHAR(255)"
+               constraints: 
+                  nullable: "true"
+                  unique: "false"
+            - column:
+               name: "phone_number"
+               type: "VARCHAR(20)"
+               constraints: 
+                  nullable: "true"
+                  unique: "false"

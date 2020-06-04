@@ -2,3 +2,5 @@ url: jdbc:mysql://localhost:3306/liquibase_test?useSSL=false
 username: root
 password: P@ssw0rd
 driver: com.mysql.cj.jdbc.Driver
+changeLogFile: liquibase-outputChangeLog.xml
+outputChangeLogFile: src/main/resources/liquibase-outputChangeLog.xml
