@@ -3,6 +3,8 @@ databaseChangeLog:
    author: "qui"
    id: "add_more_column_on_company_tables"
    changes:
+      - tagDatabase:  
+         tag:  1.0   
       - addColumn:
          tableName: "company"
          columns:
