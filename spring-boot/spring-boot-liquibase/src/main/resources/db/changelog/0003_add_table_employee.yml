@@ -1,0 +1,48 @@
+databaseChangeLog:
+- changeSet:
+   author: "qui"
+   id: "add_table_employee"
+   changes:
+      - tagDatabase:  
+         tag:  1.0
+      - createTable:
+         tableName: "employee"
+         columns:
+            - column:
+               name: "id"
+               type: "BIGINT"
+               autoIncrement: "true"
+               constraints:
+                  primaryKey: "true"
+            - column:
+               name: "first_name"
+               type: "VARCHAR(255)"
+               constraints: 
+                  nullable: "false"    
+            - column:
+               name: "last_name"
+               type: "VARCHAR(255)"
+               constraints: 
+                  nullable: "false"                              
+            - column:
+               name: "phone_number"
+               type: "VARCHAR(20)"
+               constraints: 
+                  nullable: "true"
+                  unique: "false"
+            - column:
+               name: "address"
+               type: "VARCHAR(255)"
+               constraints: 
+                  nullable: "true"
+                  unique: "false"                  
+            - column:
+               name: "company_id"
+               type: "BIGINT"
+               constraints: 
+                  nullable: "false"
+                  foreignKeyName: "fk_employee_company"
+                  references: "company(id)"                
+   rollback:
+     - sql:
+         sql: drop table employee;
