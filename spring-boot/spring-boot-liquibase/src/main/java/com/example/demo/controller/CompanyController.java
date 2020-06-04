@@ -19,6 +19,7 @@ public class CompanyController {
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public ResponseEntity<CompanyModel> addCompany(@RequestBody CompanyModel model) {
+		//TODO validation model
 		CompanyModel company = companyService.addCompany(model);
 		return ResponseEntity.ok(company);
 	}
